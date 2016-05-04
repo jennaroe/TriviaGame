@@ -1,18 +1,4 @@
 
-$( document ).ready(function() {
-	// $('#myButton').on('click', function (event) {
- //    var $btn = $(this).button('startQuiz')
- //    document.getElementById('#myButton').click();
- //    $btn.button(startQuiz, createRadios);
- //  })
-
-// $("#StartButton").click(function () {
-//         $("#SplashScreen").hide();
-//         $("#GameCanvas").show();
-//     });
-$('#startButton').click(function() { 
-        $(this).parent().fadeOut(500);
- });
 
 
 
@@ -59,6 +45,20 @@ var trivia = [
 		correctAnswer:"Illinois"
 
 }];
+$( document ).ready(function() {
+	// $('#myButton').on('click', function (event) {
+ //    var $btn = $(this).button('startQuiz')
+ //    document.getElementById('#myButton').click();
+ //    $btn.button(startQuiz, createRadios);
+ //  })
+
+// $("#StartButton").click(function () {
+//         $("#SplashScreen").hide();
+//         $("#GameCanvas").show();
+//     });
+$('#startButton').click(function() { 
+        $(this).parent().fadeOut(500);
+ });
 
 	var questionCounter= 0; //Tracks question number//
 	var selections= []; //Array containing user choices//

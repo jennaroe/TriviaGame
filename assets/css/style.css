@@ -16,18 +16,17 @@ body: {
 	height: 100%;
 	font-size: 28px;
 	color: white;
-	z-index: 1;
+	
 }
 .enter_link{
-	z-index: 1;
 	font-size: 20px;
 	color:white;
-	z-index: 1
+	
 }
 #splashImg{
 	position: absolute;
     left: 0px;
     top: 0px;
-    z-index: 0;qwqwxcas
+  	z-index: 1;  
 }
 #container
