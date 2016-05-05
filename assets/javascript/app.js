@@ -28,7 +28,7 @@ var questions = [{
 		choices: ["Academy Award", " Grammy Award" , "Tony Award", "National Book Award"],
 		correctAnswer:"Grammy Award"
 	},{
-		question: "What are the names of Barack Obama's two daughters?",
+		question: "What are the names of Barack Obama\'s two daughters?",
 		choices:["Malia Ann and Natasha", "Mayla and Nastia", "Mary Ann and Natalie", "Michelle and Nancy"],
 		correctAnswer:"Malia Ann and Natasha"
 	},{
