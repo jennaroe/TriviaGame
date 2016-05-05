@@ -1,9 +1,9 @@
-body: {
-	  background: #cccccc;
+body{
+	  /*background: #cccccc;
 	  background-image: url("../images/smbg2.jpg");
 	  align-content: center;
 	  text-align: center;
-	  font-family: cursive;
+	  font-family: cursiv*//*e;*/
 	}
 
 .page-header{
@@ -16,6 +16,8 @@ body: {
 	height: 100%;
 	font-size: 28px;
 	color: white;
+	align-items: center;
+	background-color:black !important;
 	
 }
 .enter_link{
@@ -24,9 +26,17 @@ body: {
 	
 }
 #splashImg{
-	position: absolute;
+	position: relative;
     left: 0px;
     top: 0px;
   	z-index: 1;  
 }
-#container
+
+#president-greeting {
+    position: absolute; 
+    margin:25% 43%;
+    }
+
+#content{
+	display:none;
+	}
