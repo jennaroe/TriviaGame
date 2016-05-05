@@ -1,16 +1,80 @@
-body{
-	  /*background: #cccccc;
-	  background-image: url("../images/smbg2.jpg");
-	  align-content: center;
-	  text-align: center;
-	  font-family: cursiv*//*e;*/
-	}
-
-.page-header{
-	text-align: center;
-
+@import url(http://fonts.googleapis.com/css?family=Rokkitt);
+ h1 {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    /*color:white;*/
+}
+ul {
+    list-style: none;
+}
+li {
+    font-family: 'Poiret One', cursive;
+    font-size: 2em;
+}
+input[type=radio] {
+    border: 0px;
+    width: 20px;
+    height: 1em;
+    margin: 2.5%;
+}
+p {
+    font-family: 'Poiret One', cursive;
 }
 
+/* Quiz Classes */
+ .container {
+    background-color: #154FA1;
+    border-radius: 6px;
+    width: 75%;
+    margin-top: 5%;
+    padding-top: 5px;
+    position: relative;
+}
+.nextButton {
+    border-radius: 6px;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    background-color: lightgrey;
+    color: black;
+    font-family: 'Poiret One', cursive;
+    position: relative;
+    margin: auto;
+    padding-top: 20px;
+}
+.question {
+    font-family: 'Poiret One', cursive;
+    font-size: 2em;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    border-radius: 6px;
+    background-color: lightgrey;
+    text-align: center;
+}
+.notice {
+    background-color: lightgrey;
+    border-radius: 6px;
+    width: 30%;
+    margin-top: 1%;
+    text-align: center;
+    padding: 2px;
+	font-family: 'Poiret One', cursive;
+	color: green;
+}
+.choiceList {
+    font-family: 'Poiret One', cursive; 
+    color: white;
+}
+.result {
+    width: 30%;
+    height: auto;
+    border-radius: 6px;
+    background-color: linen;
+    margin: auto;
+    text-align: center;
+    font-family: 'Poiret One', cursive;
+}
 #startButton{
 	width: 100%;
 	height: 100%;
@@ -21,8 +85,9 @@ body{
 	
 }
 .enter_link{
-	font-size: 20px;
-	color:white;
+	font-size: 18px;
+	color: lightgrey;
+	text-decoration: underline;
 	
 }
 #splashImg{
@@ -34,7 +99,9 @@ body{
 
 #president-greeting {
     position: absolute; 
-    margin:25% 43%;
+    margin:25% 41%;
+    font-family: 'Cinzel', serif;
+    font-size: 30px;
     }
 
 #content{

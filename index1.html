@@ -11,14 +11,13 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 	
     <!-- font -->
-    <link href='https://fonts.googleapis.com/css?family=Cinzel|Poiret+One' rel='stylesheet' type='text/css'>
-    
+    <link href=>
     <!-- css -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style1.css">
 	<!-- JQuery -->
 	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 	<!-- Java Script -->
-   	<script src="assets/javascript/app.js"></script>
+   	<script src="assets/javascript/app1.js"></script>
 	
 </head>
 
@@ -26,27 +25,36 @@
 	
 	<div id="splashscreen">
     <button type="button" id="startButton"  class="btn btn-primary" value="unhide">
-    <span id="president-greeting">Hey Mr. President!!! <br><u>Click to Start Game</u></span>
+    <span id="president-greeting">Hey Mr. President!!! <br> Click to Start Game</span>
        <img src="assets/images/img10.jpg" width="100%" height="100%">
-   	</button>
+    
+    </button>
 
 </div>
 
-<div class="page-header">
-		<!-- <img src="assets/images/flag.gif" width="100%" height="100%"> -->
+<div id="content">
+
+	<div class="page-header">
   		<h1>Hey Mr. President! <br><small>How well do you know our Commander and Cheif?</small></h1>
+	</div>
+	<div class="row">
+	<div class="col-lg-9" id="questions"></div>
+	<div class="col-lg-9" id="answers"></div>
+	<div class="btn btn-primary" type='button' id='next'><a href='#'>Next</a></div>
+	<div class="col-md-6" id="correctAnswer"></div>
+
+	</div>
 </div>
-
-<div class="container">
-
-        <div class="question"></div>
-        <ul class="choiceList"></ul>
-        <div class="result"></div>
-        <div class="nextButton">Next Question</div>
-        <div class="notice"></div>
-        <br>
- </div>
 
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+

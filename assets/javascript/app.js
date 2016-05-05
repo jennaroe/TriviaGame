@@ -1,6 +1,6 @@
 
-var trivia = [{
-    question: "What is Barack Obamas middle name?",
+var questions = [{
+    question: "What is Barack Obama\'s middle name?",
 		choices:["Willard", "Hussein" ,"Chang", "Uhuru"],
 		correctAnswer: "Hussien"
 	},{
@@ -8,7 +8,7 @@ var trivia = [{
 		choices:["llinois", "Georgia", "Alaska", "Hawaii"],
 		correctAnswer: "Hawaii"
 	},{
-		question:"Barack Obama received his bachelor’s degree from what university?",
+		question:"Barack Obama received his bachelor\'s degree from what university?",
 		choices:["Columbia University", "Harvard University", "Howard University", "Northwestern University"],
 		correctAnswer:"Columbia University"
 	},{
@@ -41,9 +41,25 @@ var trivia = [{
 		correctAnswer:"Illinois"
 }];
 
+var currentQuestion = 0;
+var correctAnswers = 0;
+var quizOver = false;
 
-$( document ).ready(function() {
-	
+$(document).ready(function () {
+
+	//working on clock//
+	function initializeClock(container, endtime){
+	  var clock = document.getElementById(id);
+	  var timeinterval = setInterval(function(){
+	    var t = getTimeRemaining(endtime);
+	    clock.innerHTML = 'minutes: ' + t.minutes + '<br>' + 'seconds: ' + t.seconds;
+	    if(t.total<=0){
+	      clearInterval(timeinterval);
+	    }
+	  },1000);
+	}
+
+
 	function showStuff() {
 	$("#content").css("display", "block");
 	};
@@ -53,59 +69,81 @@ $( document ).ready(function() {
         showStuff();
  });
 
-	var questionCounter= 0; //Tracks question number//
-	var selections= []; //Array containing user choices//
+    // Display the first question
+    displayCurrentQuestion();
+    $(this).find(".notice").hide();
 
-	var correct = 0;
-	var incorrect = 0;
-	var timer = 0;
- 
-// Displays question//
+    // On clicking next, display the next question
+    $(this).find(".nextButton").on("click", function () {
+        if (!quizOver) {
 
-function startQuiz(event) {
-$(document.createElement('h2')).addClass('question').attr('id', 'question').text(trivia[0]['question']).appendTo('#questions');
-};
+            value = $("input[type='radio']:checked").val();
 
-startQuiz();
+            if (value == undefined) {
+                $(document).find(".notice").text("Please select an answer");
+                $(document).find(".notice").show();
+            } else {
+                $(document).find(".notice").hide();
+                if (value == questions[currentQuestion].correctAnswer) {
+                    correctAnswers++;
+                }
 
-// Displays answers//
-function createRadios(event) {
-    var radioList = $('<ul>');
-    var item;
-    var input = '';
-    
-    for (var i = 0; i < trivia[0].choices.length; i++) {
-      item = $('<li>');
-      input = '<input type="radio" name="answer" value=' + i + ' />';
-      input += trivia[0].choices[i];
-      item.append(input);
-      radioList.append(item);
-    }
-    return radioList;
-  };
+                currentQuestion++; 
+                if (currentQuestion < questions.length) {
+                    displayCurrentQuestion();
+                } else {
+                    displayScore();
+                                       
+                    $(document).find(".nextButton").text("Play Again?");
+                    quizOver = true;
+                }
+            }
+        } else { // quiz is over and clicked the next button (which now displays 'Play Again?'
+            quizOver = false;
+            $(document).find(".nextButton").text("Next Question");
+            resetQuiz();
+            displayCurrentQuestion();
+            hideScore();
+        }
+    });
 
- $('#answers').append(createRadios());
-
-function choose() {
-    selections[questionCounter] = +$('input[name="answer"]:checked').val();
-  };
-  choose();
-  
-$('#next').click(function() { 
-		$('#random').empty();
-        for(var i = 1; i < trivia.length; i++){
-	$(document.createElement('h2')).addClass('question').attr('id', 'question').text(trivia[i]['question']).appendTo('#questions');
-	};
-	// 	for (var i = 0; i < trivia[0].options.length; i++) {
-	//       item = $('<li>');
-	//       input = '<input type="radio" name="answer" value=' + i + ' />';
-	//       input += trivia[0].options[i];
-	//       item.append(input);
-	//       radioList.append(item);
-	//     }};
-	//     return radioList;
 });
 
-//  	$('#answers').append(createRadios());
-// 		};	
-});	
+// This displays the current question AND the choices
+function displayCurrentQuestion() {
+
+    console.log("In display current Question");
+
+    var question = questions[currentQuestion].question;
+    var questionClass = $(document).find(".container > .question");
+    var choiceList = $(document).find(".container > .choiceList");
+    var numChoices = questions[currentQuestion].choices.length;
+
+    // Set the questionClass text to the current question
+    $(questionClass).text(question);
+
+    // Remove all current <li> elements (if any)
+    $(choiceList).find("li").remove();
+
+    var choice;
+    for (i = 0; i < numChoices; i++) {
+        choice = questions[currentQuestion].choices[i];
+        $('<li><input type="radio" value=' + i + ' name="dynradio" />' + choice + '</li>').appendTo(choiceList);
+    }
+}
+
+function resetQuiz() {
+    currentQuestion = 0;
+    correctAnswers = 0;
+    hideScore();
+}
+
+function displayScore() {
+	$
+    $(document).find(".container > .result").text("You scored: " + correctAnswers + " out of: " + questions.length);
+    $(document).find(".container > .result").show();
+}
+
+function hideScore() {
+    $(document).find(".result").hide();
+}

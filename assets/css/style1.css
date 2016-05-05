@@ -1,0 +1,42 @@
+body{
+	  /*background: #cccccc;
+	  background-image: url("../images/smbg2.jpg");
+	  align-content: center;
+	  text-align: center;
+	  font-family: cursiv*//*e;*/
+	}
+
+.page-header{
+	text-align: center;
+
+}
+
+#startButton{
+	width: 100%;
+	height: 100%;
+	font-size: 28px;
+	color: white;
+	align-items: center;
+	background-color:black !important;
+	
+}
+.enter_link{
+	font-size: 20px;
+	color:white;
+	
+}
+#splashImg{
+	position: relative;
+    left: 0px;
+    top: 0px;
+  	z-index: 1;  
+}
+
+#president-greeting {
+    position: absolute; 
+    margin:25% 43%;
+    }
+
+#content{
+	display:none;
+	}
